@@ -70,6 +70,7 @@ if st.button("🔄 Retrain Model with Feedback"):
         original['label'] = original['label'].map({'ham': 0, 'spam': 1})
 
         # Combine datasets
+        feedback_data = pd.concat([feedback_data]*50)
         combined = pd.concat([original, feedback_data])
 
         from sklearn.feature_extraction.text import TfidfVectorizer
